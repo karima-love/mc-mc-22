@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>حضن</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============ LOCK SCREEN ============ -->
+  <div id="lock-screen">
+    <div class="lock-bg">
+      <div class="sky-gradient"></div>
+      <div class="particles" id="lockParticles"></div>
+    </div>
+    <div class="lock-card glass">
+      <div class="lock-icon" id="lockIcon">🔒</div>
+      <p class="lock-msg">في حاجة معمولالك من كل قلبي...<br>اختاري التاريخ اللي إحنا عمرنا ما هننساه ❤️</p>
+      
+      <!-- Native Hidden Date Input -->
+      <div class="date-input-container">
+        <input type="date" id="datePassword" class="glass-input" aria-label="تاريخنا">
+      </div>
+      
+      <p class="pin-error" id="pinError">مممم... جربي تاني يا حبيبتي ❤️</p>
+    </div>
+    <div class="unlock-flash" id="unlockFlash"></div>
+  </div>
+
+  <!-- ============ MAIN SITE ============ -->
+  <div id="site" hidden>
+
+    <div class="bg-scene" id="bgScene">
+      <div class="sky-gradient"></div>
+      <canvas id="threeCanvas"></canvas>
+      <div class="particles" id="siteParticles"></div>
+      <div class="sun-rays"></div>
+    </div>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Music Player -->
+    <div class="music-player glass" id="musicPlayer">
+      <button id="musicToggle" aria-label="تشغيل الموسيقى">🎵</button>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.4">
+    </div>
+    <audio id="bgMusic" src="assets/music/piano-theme.mp3" loop preload="auto"></audio>
+
+    <!-- HERO -->
+    <section class="section hero" id="hero">
+      <h1 class="split-text" data-text="أنا عارف إنك زعلانة من جواكي."></h1>
+      <p class="subtitle fade-in">وعندي كلام كتير أوي نفسي أقولهولك... طالع من قلبي مش من عقلي</p>
+      <div class="scroll-hint">↓ انزلي لتحت شوية</div>
+    </section>
+
+    <!-- THE TRUTH -->
+    <section class="section quiet-moment" data-quiet="true">
+      <p class="reveal-line">أنا مش ساكت عشان مش بحبك.</p>
+      <p class="reveal-line">ومش ساكت عشان مش واثق فيكي.</p>
+      <p class="reveal-line">أنا ساكت... عشان بجد مش عارف أطلع اللي جوايا إزاي.</p>
+      <p class="reveal-line">حاسس إن كل حاجة جوايا متلخبطة في بعض، ومش لاقي كلام يوصفها.</p>
+      <p class="reveal-line">وده مش عذر... دي الحقيقة وبس.</p>
+    </section>
+
+    <!-- SHE IS MY HOME -->
+    <section class="section home-section">
+      <h2 class="reveal">إنت بيتي</h2>
+      <div class="cards-grid">
+        <div class="glow-card glass"><span>🏠</span><p>إنت أقرب حاجة لقلبي</p></div>
+        <div class="glow-card glass"><span>🕊️</span><p>إنت أماني اللي مش هلاقيه في حتة تانية</p></div>
+        <div class="glow-card glass"><span>🌙</span><p>إنت الراحة اللي دايماً بدور عليها</p></div>
+        <div class="glow-card glass"><span>💛</span><p>إنت أول واحدة بييجي في بالي أرجعلها</p></div>
+      </div>
+      <p class="reveal small-note">وإنت عمرك ما تستاهلي تحسي إنك برا الصورة، أو إنك مضطرة تفكي لوغاريتماتي لوحدك.</p>
+    </section>
+
+    <!-- DEDICATED FOR HER -->
+    <section class="section for-her">
+      <h2 class="reveal">لكريمتي</h2>
+      <p class="reveal-line">أنا عارف إنك تعبانة الفترة دي.</p>
+      <p class="reveal-line">عارف إنك شايلة قلق وخوف وضغط وتفكير مش سايبك في حالك.</p>
+      <p class="reveal-line">عارف إنك بتضحكي وجواكي عالم تاني خالص من التعب.</p>
+      <p class="reveal-line highlight">من حقك تتعبي.</p>
+      <p class="reveal-line highlight">من حقك تعيطي.</p>
+      <p class="reveal-line highlight">من حقك تقولي إنك "مش كويسة" وتبقي متأكدة إني جنبك.</p>
+      <p class="reveal-line big">هي دي الحقيقة: مقدرش أوعدك إن الدنيا هتبقى سهلة... بس أوعدك إنك عمرك ما هتشيلي شيلتها لوحدك.</p>
+      <p class="reveal-line big">هشيل معاكي. وهفضل معاكي.</p>
+    </section>
+
+    <!-- LOVE COUNTER -->
+    <section class="section counter-section">
+      <h2 class="reveal">من ٢٢ / ١١ / ٢٠٢٣ لحد دلوقتي</h2>
+      <div class="counter-grid glass">
+        <div><span id="cYears">0</span><label>سنة</label></div>
+        <div><span id="cMonths">0</span><label>شهر</label></div>
+        <div><span id="cDays">0</span><label>يوم</label></div>
+        <div><span id="cHours">0</span><label>ساعة</label></div>
+        <div><span id="cMins">0</span><label>دقيقة</label></div>
+        <div><span id="cSecs">0</span><label>ثانية</label></div>
+      </div>
+      <p class="reveal small-note">وكل ثانية فيهم تسوى الدنيا باللي فيها.</p>
+    </section>
+
+    <!-- MEMORIES GALLERY -->
+    <section class="section gallery-section">
+      <h2 class="reveal">كل مرة نرجع فيها لبعض كانت بتبقى بداية جديدة ❤️</h2>
+      <div class="gallery-grid">
+        <div class="photo-card glass" data-caption="كل مرة كنا بنزعل فيها... كنا بنكتشف قد إيه إحنا منقدرش نستغنى عن بعض ❤️">
+          <img src="assets/images/memory1.jpg" alt="ذكرى ١" loading="lazy">
+          <p class="caption">كل مرة كنا بنزعل فيها... كنا بنكتشف قد إيه إحنا منقدرش نستغنى عن بعض ❤️</p>
+        </div>
+        <div class="photo-card glass" data-caption="الزعل كان بياخد وقته ويعدي... بس إحساسنا ببعض كان بيفضل زي ما هو.">
+          <img src="assets/images/memory2.jpg" alt="ذكرى ٢" loading="lazy">
+          <p class="caption">الزعل كان بياخد وقته ويعدي... بس إحساسنا ببعض كان بيفضل زي ما هو.</p>
+        </div>
+        <div class="photo-card glass" data-caption="أحلى حاجة فينا إننا عمرنا ما خلينا الزعل يغلبنا.">
+          <img src="assets/images/memory3.jpg" alt="ذكرى ٣" loading="lazy">
+          <p class="caption">أحلى حاجة فينا إننا عمرنا ما خلينا الزعل يغلبنا.</p>
+        </div>
+        <div class="photo-card glass" data-caption="كل صلح بينا كان بيأكدلي إنك الإنسانه اللي عايز أكمل معاها عمري.">
+          <img src="assets/images/memory4.jpg" alt="ذكرى ٤" loading="lazy">
+          <p class="caption">كل صلح بينا كان بيأكدلي إنك الإنسانه اللي عايز أكمل معاها عمري.</p>
+        </div>
+        <div class="photo-card glass" data-caption="مهما حصل... دايماً بنرجع لبعض بقلب أصفى وحب أكبر.">
+          <img src="assets/images/memory5.jpg" alt="ذكرى ٥" loading="lazy">
+          <p class="caption">مهما حصل... دايماً بنرجع لبعض بقلب أصفى وحب أكبر.</p>
+        </div>
+        <div class="photo-card future-card glass" id="futureCard">
+          <div class="future-frame">
+            <div class="future-glow"></div>
+            <div class="future-hearts"></div>
+            <p class="future-title">صورتنا الجاية ❤️</p>
+            <p class="future-sub">لسه مستنيين أحلى لحظة...<br>لحظة مفيهاش زعل...<br>مفهاش غير ضحك وحب وراحة بال.</p>
+            <button id="makeMemoryBtn">نعمل الذكرى دي سوا؟ ❤️</button>
+          </div>
+        </div>
+      </div>
+      <p class="reveal small-note gallery-final">أنا بحب كل لحظة جمعتنا... حتى اللحظات الصعبة... عشان علمتني إن أهم حاجة في الدنيا إننا نفضل متمسكين ببعض ❤️</p>
+    </section>
+
+    <!-- HUG BUTTON -->
+    <section class="section hug-section">
+      <h2 class="reveal">مستعدة لحضن؟</h2>
+      <button id="hugBtn" class="hug-btn">حضن</button>
+    </section>
+
+    <!-- ENDING -->
+    <section class="section ending-section">
+      <p class="reveal-line">أنا آسف.</p>
+      <p class="reveal-line">بحبك.</p>
+      <p class="reveal-line">إنت حياتي.</p>
+      <p class="reveal-line big">وعمري ما هسيبك تحسي إنك لوحدك في الدنيا دي تاني.</p>
+      <div class="final-heart" id="finalHeart">❤️</div>
+    </section>
+
+  </div>
+
+  <!-- Fullscreen overlays -->
+  <div class="overlay-message" id="hugOverlay"></div>
+  <div class="overlay-message" id="futureOverlay"></div>
+  <canvas id="fxCanvas"></canvas>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>
